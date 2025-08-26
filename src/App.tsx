@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import BackgroundVideo from "./components/BackgroundVideo";
 import HeroSection from "./components/HeroSection";
+import TrustedBy from "./components/TrustedBy";
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <main className="pt-14">
         <HeroSection />
       </main>
+      <TrustedBy/>
     </>
   );
 };
