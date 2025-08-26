@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import BackgroundVideo from "./components/BackgroundVideo";
 import HeroSection from "./components/HeroSection";
 import TrustedBy from "./components/TrustedBy";
-
+import DataDriven from "./components/DataDriven";
 const App: React.FC = () => {
   return (
     <>
@@ -15,6 +15,7 @@ const App: React.FC = () => {
         <HeroSection />
       </main>
       <TrustedBy/>
+      <DataDriven/>
     </>
   );
 };
