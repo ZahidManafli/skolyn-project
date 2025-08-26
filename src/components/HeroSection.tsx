@@ -15,13 +15,13 @@ const HeroSection: React.FC = () => {
       <div className="mt-8 flex flex-wrap gap-4">
         <a
           href="#demo"
-          className="rounded-md bg-teal-500 px-6 py-3 text-base font-medium text-white hover:bg-[#0C9187] transition"
+          className="rounded-md bg-[#00A99D] px-6 py-3 text-base font-medium text-white hover:bg-[#0C9187] transition"
         >
           Request a Demo
         </a>
         <a
           href="#explore"
-          className="rounded-md bg-teal-500 px-6 py-3 text-base font-medium text-white hover:bg-[#0C9187] transition"
+          className="rounded-md bg-[#00A99D] px-6 py-3 text-base font-medium text-white hover:bg-[#0C9187] transition"
         >
           Explore the Platform
         </a>
