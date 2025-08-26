@@ -1,13 +1,19 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import AppRoutes from './routes/AppRoutes';
+import React from "react";
+import Navbar from "./components/Navbar";
+import BackgroundVideo from "./components/BackgroundVideo";
+import HeroSection from "./components/HeroSection";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
+      <BackgroundVideo src="/videos/BackgroundVideo.mp4" />
+
       <Navbar />
-      <AppRoutes />
-    </div>
+
+      <main className="pt-14">
+        <HeroSection />
+      </main>
+    </>
   );
 };
 
