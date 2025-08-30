@@ -67,7 +67,7 @@ const DataDriven: React.FC<Props> = ({
             return (
               <article
                 key={i}
-                className={`rounded-2xl ${c.bgClass ?? "bg-[#1D56AC]"} text-white shadow-lg ring-1 ring-black/5`}
+                className={`rounded-2xl ${c.bgClass ?? "bg-[#1D56AC] "} text-white shadow-lg ring-1 ring-black/5 hover:bg-[#002366] transition`}
               >
                 <div className="flex flex-col p-8 md:p-10">
                  

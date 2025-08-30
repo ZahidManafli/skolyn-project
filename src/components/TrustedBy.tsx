@@ -8,7 +8,7 @@ const TrustedBy: React.FC = () => {
   return (
     <section className="w-full bg-white ">
       <div className="mx-auto max-w-7xl boder-b  ">
-        <h2 className="text-start text-5xl font-bold text-[#030F4F]">
+        <h2 className="text-start text-5xl font-bold text-[#030F4F] pt-10">
           Trusted By Our Strategic Partners
         </h2>
 

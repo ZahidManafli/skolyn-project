@@ -3,11 +3,12 @@ import React from "react";
 type Props = {
   src: string;
   overlayClassName?: string;
+  className?: string; // ekstra Tailwind class ekleyebilmek için
 };
 
-const BackgroundVideo: React.FC<Props> = ({ src, overlayClassName }) => {
+const BackgroundVideo: React.FC<Props> = ({ src, overlayClassName, className }) => {
   return (
-    <div className="fixed inset-0 -z-10 h-full w-full overflow-hidden">
+    <div className={`absolute inset-0 -z-10 h-full w-full overflow-hidden ${className || ""}`}>
       <video
         className="h-full w-full object-cover"
         src={src}
