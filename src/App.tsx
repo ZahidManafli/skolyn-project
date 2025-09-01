@@ -6,18 +6,19 @@ import TrustedBy from "./components/TrustedBy";
 import DataDriven from "./components/DataDriven";
 import Diagnostics from "./components/Diagnostics";
 import SkolynClinical from "./components/SkolynClinical";
+import BreastCancer from "./components/BreastCancer";
 const App: React.FC = () => {
   return (
     <>
       <Navbar />
 
-     
-        <HeroSection />
-     
+      <HeroSection />
+
       <TrustedBy />
       <DataDriven />
       <Diagnostics />
       <SkolynClinical />
+      <BreastCancer />
     </>
   );
 };
