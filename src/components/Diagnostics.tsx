@@ -16,7 +16,7 @@ const Diagnostics: React.FC = () => {
       style={{ backgroundImage: `url(${bgImg})` }} 
     >
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-50">
-        <h2 className="text-center text-2xl font-bold tracking-tight text-[#030F4F] md:text-3xl">
+        <h2 className="text-center text-2xl font-bold tracking-tight text-[#030F4F] md:text-4xl">
           An Integrated OS for Modern Diagnostics
         </h2>
 
@@ -25,7 +25,7 @@ const Diagnostics: React.FC = () => {
             {" "}
             <li className="flex items-start gap-4">
               {" "}
-              <div className="mt-4 flex h-12 w-12 flex-none items-center justify-center rounded-md ring-1 ring-black/5">
+              <div className="mt-4 flex h-14 w-14 flex-none items-center justify-center">
                 {" "}
                 <TriageIcon className="w-full h-auto" />{" "}
               </div>{" "}
@@ -46,7 +46,7 @@ const Diagnostics: React.FC = () => {
             </li>{" "}
             <li className="flex items-start gap-4">
               {" "}
-              <div className="mt-4 flex h-12 w-12 flex-none items-center justify-center rounded-md ring-1 ring-black/5">
+              <div className="mt-4 flex h-14 w-14 flex-none items-center justify-center">
                 {" "}
                 <XAIcon className="w-full h-auto" />{" "}
               </div>{" "}
@@ -66,7 +66,7 @@ const Diagnostics: React.FC = () => {
             </li>{" "}
             <li className="flex items-start gap-4">
               {" "}
-              <div className="mt-4 flex h-12 w-12 flex-none items-center justify-center rounded-md ring-1 ring-black/5">
+              <div className="mt-4 flex h-14 w-14 flex-none items-center justify-center">
                 {" "}
                 <AnalysisIcon className="w-full h-auto" />{" "}
               </div>{" "}
@@ -76,7 +76,7 @@ const Diagnostics: React.FC = () => {
                   {" "}
                   Longitudinal Analysis{" "}
                 </h3>{" "}
-                <p className="mt-1 text-sm leading-relaxed">
+                <p className="mt-1 text-sm  leading-relaxed">
                   {" "}
                   Go beyond a single snapshot: compare current and prior scans
                   to quantify disease progression and treatment response with

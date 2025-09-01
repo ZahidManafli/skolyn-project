@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import TrustedBy from "./components/TrustedBy";
 import DataDriven from "./components/DataDriven";
 import Diagnostics from "./components/Diagnostics";
+import SkolynClinical from "./components/SkolynClinical";
 const App: React.FC = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <TrustedBy />
       <DataDriven />
       <Diagnostics />
+      <SkolynClinical />
     </>
   );
 };
