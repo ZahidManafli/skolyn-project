@@ -8,6 +8,7 @@ import Diagnostics from "./components/Diagnostics";
 import SkolynClinical from "./components/SkolynClinical";
 import BreastCancer from "./components/BreastCancer";
 import BoxPrinciple from "./components/BoxPrincible";
+import ForRadiologists from "./components/ForRadiologists";
 const App: React.FC = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App: React.FC = () => {
       <SkolynClinical />
       <BreastCancer />
       <BoxPrinciple />
+      <ForRadiologists />
     </>
   );
 };

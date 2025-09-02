@@ -32,7 +32,7 @@ const BreastCancerDiagnostics: React.FC = () => {
               <img
                 src={clinicalImg}
                 alt="Breast Cancer Diagnostics"
-                className="max-w-md w-full rounded-lg"
+                className="max-w-xl w-full rounded-lg"
               />
             </div>
 
@@ -72,7 +72,7 @@ const BreastCancerDiagnostics: React.FC = () => {
             <img
               src={clinicalImg2}
               alt="AI-Enhanced MRI"
-              className="max-w-3xl w-full rounded-lg shadow-lg"
+              className="max-w-xl w-full rounded-lg shadow-lg"
             />
           </div>
 
