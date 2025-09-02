@@ -7,6 +7,7 @@ import DataDriven from "./components/DataDriven";
 import Diagnostics from "./components/Diagnostics";
 import SkolynClinical from "./components/SkolynClinical";
 import BreastCancer from "./components/BreastCancer";
+import BoxPrinciple from "./components/BoxPrincible";
 const App: React.FC = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Diagnostics />
       <SkolynClinical />
       <BreastCancer />
+      <BoxPrinciple />
     </>
   );
 };
