@@ -85,19 +85,29 @@ const Navbar: React.FC = () => {
   const [solid, setSolid] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileOpenIndex, setMobileOpenIndex] = useState<number | null>(null);
+
+  const [lang, setLang] = useState<"EN" | "AZ">("EN");
+  const [langOpen, setLangOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
+
   const rootRef = useRef<HTMLDivElement>(null);
 
-  // Dışarı tıklayınca masaüstü menü kapansın + es kapatsın
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
       if (!rootRef.current) return;
-      if (!rootRef.current.contains(e.target as Node)) setOpenIndex(null);
+      if (!rootRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
+        setLangOpen(false);
+        setMobileLangOpen(false);
+      }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpenIndex(null);
         setMobileOpen(false);
         setMobileOpenIndex(null);
+        setLangOpen(false);
+        setMobileLangOpen(false);
       }
     };
     document.addEventListener("mousedown", onDocClick);
@@ -125,6 +135,13 @@ const Navbar: React.FC = () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const handleSelectLang = (newLang: "EN" | "AZ") => {
+    setLang(newLang);
+    setLangOpen(false);
+    setMobileLangOpen(false);
+    // Burada i18n entegrasyonunu eklenebilir
+  };
 
   return (
     <header
@@ -196,12 +213,40 @@ const Navbar: React.FC = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <button
-              className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] cursor-pointer hover:text-[#00A99D]"
-              aria-label="Language"
-            >
-              EN
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] cursor-pointer hover:text-[#00A99D]"
+                aria-label="Language"
+                aria-expanded={langOpen}
+              >
+                {lang}
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 w-20 rounded-md bg-[#0b1f45] border border-white/20 shadow-lg">
+                  <ul className="py-1 text-xs text-white">
+                    <li>
+                      <button
+                        onClick={() => handleSelectLang("EN")}
+                        className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                      >
+                        EN
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleSelectLang("AZ")}
+                        className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                      >
+                        AZ
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
             <a
               href="/login"
               className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
@@ -219,7 +264,6 @@ const Navbar: React.FC = () => {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {/* Hamburger Menü İkonu */}
             <svg
               className={`h-5 w-5 transition-transform ${
                 mobileOpen ? "rotate-90 opacity-0 absolute" : "opacity-100"
@@ -247,109 +291,138 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobil panel */}
-        <div
-          id="mobile-menu"
-          className={[
-            "md:hidden overflow-hidden transition-[max-height,opacity] duration-300",
-            mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
-          ].join(" ")}
-        >
-          <div className="mt-2 rounded-lg border border-white/10 bg-[#0b1f45]/95 p-2 backdrop-blur">
-            <ul className="divide-y divide-white/10">
-              {NAV.map((item, idx) => {
-                const hasChildren = !!item.children?.length;
-                const isOpen = mobileOpenIndex === idx;
+        {mobileOpen && (
+          <div
+            id="mobile-menu"
+            className="fixed inset-x-0 z-40 top-14  /* top = h-14 (56px) */
+               h-[calc(100dvh-3.5rem)]  /* 100dvh - 56px */
+               bg-[#0b1f45]/95 backdrop-blur
+               border-t border-white/10
+               overflow-y-auto"
+          >
+            <div className="p-2">
+              <ul className="divide-y divide-white/10">
+                {NAV.map((item, idx) => {
+                  const hasChildren = !!item.children?.length;
+                  const isOpen = mobileOpenIndex === idx;
 
-                if (!hasChildren) {
+                  if (!hasChildren) {
+                    return (
+                      <li key={item.label} className="py-1">
+                        <a
+                          href={item.href ?? "#"}
+                          className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={item.label} className="py-1">
-                      <a
-                        href={item.href ?? "#"}
-                        className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
-                        onClick={() => setMobileOpen(false)}
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-white/90 hover:bg-white/10"
+                        aria-expanded={isOpen}
+                        onClick={() => setMobileOpenIndex(isOpen ? null : idx)}
                       >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                }
+                        <span>{item.label}</span>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          className={`transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        >
+                          <path
+                            d="M6 9l6 6 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            fill="none"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </button>
 
-                return (
-                  <li key={item.label} className="py-1">
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-white/90 hover:bg-white/10"
-                      aria-expanded={isOpen}
-                      onClick={() => setMobileOpenIndex(isOpen ? null : idx)}
-                    >
-                      <span>{item.label}</span>
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        className={`transition-transform ${
-                          isOpen ? "rotate-180" : ""
+                      <div
+                        className={`overflow-hidden transition-[max-height,opacity] duration-300 ${
+                          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                         }`}
                       >
-                        <path
-                          d="M6 9l6 6 6-6"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          fill="none"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </button>
+                        <ul className="py-1 pl-3">
+                          {item.children!.map((c) => (
+                            <li key={c.label}>
+                              <a
+                                href={c.href}
+                                className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setMobileOpenIndex(null);
+                                }}
+                              >
+                                {c.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
 
-                    {/* Alt menü */}
-                    <div
-                      className={[
-                        "overflow-hidden transition-[max-height,opacity] duration-300",
-                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-                      ].join(" ")}
-                    >
-                      <ul className="py-1 pl-3">
-                        {item.children!.map((c) => (
-                          <li key={c.label}>
-                            <a
-                              href={c.href}
-                              className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
-                              onClick={() => {
-                                setMobileOpen(false);
-                                setMobileOpenIndex(null);
-                              }}
-                            >
-                              {c.label}
-                            </a>
-                          </li>
-                        ))}
+              <div className="mt-3 flex items-center gap-3 px-2 pb-4">
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      setMobileLangOpen((v) => !v);
+                      setLangOpen(false);
+                    }}
+                    className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] hover:text-[#00A99D]"
+                    aria-label="Language"
+                    aria-expanded={mobileLangOpen}
+                  >
+                    {lang}
+                  </button>
+                  {mobileLangOpen && (
+                    <div className="absolute left-0 top-full mt-1 w-24 rounded-md bg-[#0b1f45] border border-white/20 shadow-lg">
+                      <ul className="py-1 text-xs text-white">
+                        <li>
+                          <button
+                            onClick={() => handleSelectLang("EN")}
+                            className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                          >
+                            EN
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={() => handleSelectLang("AZ")}
+                            className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                          >
+                            AZ
+                          </button>
+                        </li>
                       </ul>
                     </div>
-                  </li>
-                );
-              })}
-            </ul>
+                  )}
+                </div>
 
-            <div className="mt-3 flex items-center gap-3 px-2 pb-2">
-              <button
-                className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] hover:text-[#00A99D]"
-                aria-label="Language"
-                onClick={() => setMobileOpen(false)}
-              >
-                EN
-              </button>
-              <a
-                href="/login"
-                className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
-                onClick={() => setMobileOpen(false)}
-              >
-                <LoginIcon />
-                Login
-              </a>
+                <a
+                  href="/login"
+                  className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <LoginIcon />
+                  Login
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
