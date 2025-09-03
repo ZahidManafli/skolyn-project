@@ -3,6 +3,7 @@ import BackgroundVideo from "./BackgroundVideo";
 
 const HeroSection: React.FC = () => {
   return (
+    
     <section className="relative min-h-[90vh] overflow-hidden">
       {/* BG video sadece bu section içinde */}
       <BackgroundVideo
