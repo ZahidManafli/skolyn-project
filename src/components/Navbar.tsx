@@ -1,94 +1,99 @@
 import React, { useEffect, useRef, useState } from "react";
 import LoginIcon from "./LoginIcon";
 import NavbarIcon from "./NavbarIcon";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
-type ChildItem = { label: string; href: string };
-type NavItem = { label: string; href?: string; children?: ChildItem[] };
+type ChildItem = { key: string; href: string };
+type NavItem = { key: string; href?: string; children?: ChildItem[] };
 
 const NAV: NavItem[] = [
   {
-    label: "Platform",
+    key: "nav.platform.title",
     children: [
-      { label: "The Skolyn OS", href: "#" },
-      { label: "Clinical Modules", href: "#" },
-      { label: "Core Technologies", href: "#" },
-      { label: "Workflow Integration", href: "#" },
+      { key: "nav.platform.skolyn_os", href: "#" },
+      { key: "nav.platform.clinical_modules", href: "#" },
+      { key: "nav.platform.core_technologies", href: "#" },
+      { key: "nav.platform.workflow_integration", href: "#" },
     ],
   },
   {
-    label: "Solutions",
+    key: "nav.solutions.title",
     children: [
-      { label: "Overview", href: "#" },
-      { label: "Clinical Practice", href: "#" },
-      { label: "Hospital Management", href: "#" },
-      { label: "Research & Pharma", href: "#" },
+      { key: "nav.solutions.overview", href: "#" },
+      { key: "nav.solutions.clinical_practice", href: "#" },
+      { key: "nav.solutions.hospital_management", href: "#" },
+      { key: "nav.solutions.research_pharma", href: "#" },
     ],
   },
   {
-    label: "Technology",
+    key: "nav.technology.title",
     children: [
-      { label: "AI Research Philosophy", href: "#" },
-      { label: "Infrastructure", href: "#" },
-      { label: "Ethical Al", href: "#" },
+      { key: "nav.technology.ai_research_philosophy", href: "#" },
+      { key: "nav.technology.infrastructure", href: "#" },
+      { key: "nav.technology.ethical_ai", href: "#" },
     ],
   },
   {
-    label: "Validation",
+    key: "nav.validation.title",
     children: [
-      { label: "Our Methodology", href: "#" },
-      { label: "Clinical Studies", href: "#" },
-      { label: "Publications", href: "#" },
-      { label: "Regulatory Compliance", href: "#" },
+      { key: "nav.validation.methodology", href: "#" },
+      { key: "nav.validation.clinical_studies", href: "#" },
+      { key: "nav.validation.publications", href: "#" },
+      { key: "nav.validation.regulatory_compliance", href: "#" },
     ],
   },
   {
-    label: "Insights",
+    key: "nav.insights.title",
     children: [
-      { label: "Main Feed", href: "#" },
-      { label: "White Papers", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Webinars", href: "#" },
-      { label: "News and Press", href: "#" },
+      { key: "nav.insights.main_feed", href: "#" },
+      { key: "nav.insights.white_papers", href: "#" },
+      { key: "nav.insights.case_studies", href: "#" },
+      { key: "nav.insights.webinars", href: "#" },
+      { key: "nav.insights.news_press", href: "#" },
     ],
   },
   {
-    label: "Partners",
+    key: "nav.partners.title",
     children: [
-      { label: "Become a Partner", href: "#" },
-      { label: "Clinical and Research", href: "#" },
-      { label: "Technology and Integration", href: "#" },
-      { label: "Investor Relations", href: "#" },
+      { key: "nav.partners.become_partner", href: "#" },
+      { key: "nav.partners.clinical_research", href: "#" },
+      { key: "nav.partners.technology_integration", href: "#" },
+      { key: "nav.partners.investor_relations", href: "#" },
     ],
   },
   {
-    label: "Company",
+    key: "nav.company.title",
     children: [
-      { label: "Our Story", href: "#" },
-      { label: "Leadership", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Our Commitment to Azerbaijan", href: "#" },
+      { key: "nav.company.our_story", href: "#" },
+      { key: "nav.company.leadership", href: "#" },
+      { key: "nav.company.careers", href: "#" },
+      { key: "nav.company.commitment_azerbaijan", href: "#" },
     ],
   },
   {
-    label: "Contact",
+    key: "nav.contact.title",
     children: [
-      { label: "General Inquiry", href: "#" },
-      { label: "Resquest a Demo", href: "#" },
-      { label: "Media and Press", href: "#" },
-      { label: "Support", href: "#" },
+      { key: "nav.contact.general_inquiry", href: "#" },
+      { key: "nav.contact.request_demo", href: "#" },
+      { key: "nav.contact.media_press", href: "#" },
+      { key: "nav.contact.support", href: "#" },
     ],
   },
 ];
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [solid, setSolid] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileOpenIndex, setMobileOpenIndex] = useState<number | null>(null);
 
-  const [lang, setLang] = useState<"EN" | "AZ">("EN");
   const [langOpen, setLangOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
+  const currentLangShort = (i18n.language || "en").slice(0, 2).toUpperCase() as
+    | "EN"
+    | "AZ";
 
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -137,10 +142,9 @@ const Navbar: React.FC = () => {
   }, [mobileOpen]);
 
   const handleSelectLang = (newLang: "EN" | "AZ") => {
-    setLang(newLang);
+    void i18n.changeLanguage(newLang.toLowerCase() as "en" | "az");
     setLangOpen(false);
     setMobileLangOpen(false);
-    // Burada i18n entegrasyonunu eklenebilir
   };
 
   return (
@@ -162,19 +166,19 @@ const Navbar: React.FC = () => {
 
                 if (!hasChildren) {
                   return (
-                    <li key={item.label}>
+                    <li key={item.key}>
                       <a
                         href={item.href ?? "#"}
                         className="inline-block py-2 text-base text-white transition hover:text-[#00A99D] cursor-pointer "
                       >
-                        {item.label}
+                        {t(item.key)}
                       </a>
                     </li>
                   );
                 }
 
                 return (
-                  <li key={item.label} className="relative">
+                  <li key={item.key} className="relative">
                     <button
                       type="button"
                       aria-haspopup="menu"
@@ -182,7 +186,7 @@ const Navbar: React.FC = () => {
                       onClick={() => setOpenIndex(isOpen ? null : idx)}
                       className="inline-flex items-center gap-2 py-2 text-base text-white transition hover:text-[#00A99D] cursor-pointer"
                     >
-                      {item.label}
+                      {t(item.key)}
                       <NavbarIcon />
                     </button>
 
@@ -193,13 +197,13 @@ const Navbar: React.FC = () => {
                       >
                         <ul className="py-2">
                           {item.children!.map((c) => (
-                            <li key={c.label}>
+                            <li key={c.key}>
                               <a
                                 href={c.href}
                                 className="block p-4 ml-2 text-base text-white transition hover:text-[#FFFFFF] "
                                 onClick={() => setOpenIndex(null)}
                               >
-                                {c.label}
+                                {t(c.key)}
                               </a>
                             </li>
                           ))}
@@ -217,10 +221,10 @@ const Navbar: React.FC = () => {
               <button
                 onClick={() => setLangOpen((v) => !v)}
                 className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] cursor-pointer hover:text-[#00A99D]"
-                aria-label="Language"
+                aria-label={t("lang.label")}
                 aria-expanded={langOpen}
               >
-                {lang}
+                {currentLangShort}
               </button>
 
               {langOpen && (
@@ -230,6 +234,7 @@ const Navbar: React.FC = () => {
                       <button
                         onClick={() => handleSelectLang("EN")}
                         className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                        aria-label={t("lang.en")}
                       >
                         EN
                       </button>
@@ -237,7 +242,8 @@ const Navbar: React.FC = () => {
                     <li>
                       <button
                         onClick={() => handleSelectLang("AZ")}
-                        className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                        className="block w-full text-left px-3 py-1 hover:bg白/10 hover:bg-white/10"
+                        aria-label={t("lang.az")}
                       >
                         AZ
                       </button>
@@ -250,9 +256,10 @@ const Navbar: React.FC = () => {
             <a
               href="/login"
               className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
+              aria-label={t("auth.login")}
             >
               <LoginIcon />
-              Login
+              {t("auth.login")}
             </a>
           </div>
 
@@ -294,8 +301,8 @@ const Navbar: React.FC = () => {
         {mobileOpen && (
           <div
             id="mobile-menu"
-            className="fixed inset-x-0 z-40 top-14  /* top = h-14 (56px) */
-               h-[calc(100dvh-3.5rem)]  /* 100dvh - 56px */
+            className="fixed inset-x-0 z-40 top-14
+               h-[calc(100dvh-3.5rem)]
                bg-[#0b1f45]/95 backdrop-blur
                border-t border-white/10
                overflow-y-auto"
@@ -308,27 +315,27 @@ const Navbar: React.FC = () => {
 
                   if (!hasChildren) {
                     return (
-                      <li key={item.label} className="py-1">
+                      <li key={item.key} className="py-1">
                         <a
                           href={item.href ?? "#"}
                           className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
                           onClick={() => setMobileOpen(false)}
                         >
-                          {item.label}
+                          {t(item.key)}
                         </a>
                       </li>
                     );
                   }
 
                   return (
-                    <li key={item.label} className="py-1">
+                    <li key={item.key} className="py-1">
                       <button
                         type="button"
                         className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-white/90 hover:bg-white/10"
                         aria-expanded={isOpen}
                         onClick={() => setMobileOpenIndex(isOpen ? null : idx)}
                       >
-                        <span>{item.label}</span>
+                        <span>{t(item.key)}</span>
                         <svg
                           width="18"
                           height="18"
@@ -354,7 +361,7 @@ const Navbar: React.FC = () => {
                       >
                         <ul className="py-1 pl-3">
                           {item.children!.map((c) => (
-                            <li key={c.label}>
+                            <li key={c.key}>
                               <a
                                 href={c.href}
                                 className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
@@ -363,7 +370,7 @@ const Navbar: React.FC = () => {
                                   setMobileOpenIndex(null);
                                 }}
                               >
-                                {c.label}
+                                {t(c.key)}
                               </a>
                             </li>
                           ))}
@@ -382,10 +389,10 @@ const Navbar: React.FC = () => {
                       setLangOpen(false);
                     }}
                     className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] hover:text-[#00A99D]"
-                    aria-label="Language"
+                    aria-label={t("lang.label")}
                     aria-expanded={mobileLangOpen}
                   >
-                    {lang}
+                    {currentLangShort}
                   </button>
                   {mobileLangOpen && (
                     <div className="absolute left-0 top-full mt-1 w-24 rounded-md bg-[#0b1f45] border border-white/20 shadow-lg">
@@ -394,6 +401,7 @@ const Navbar: React.FC = () => {
                           <button
                             onClick={() => handleSelectLang("EN")}
                             className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                            aria-label={t("lang.en")}
                           >
                             EN
                           </button>
@@ -402,6 +410,7 @@ const Navbar: React.FC = () => {
                           <button
                             onClick={() => handleSelectLang("AZ")}
                             className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                            aria-label={t("lang.az")}
                           >
                             AZ
                           </button>
@@ -415,9 +424,10 @@ const Navbar: React.FC = () => {
                   href="/login"
                   className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
                   onClick={() => setMobileOpen(false)}
+                  aria-label={t("auth.login")}
                 >
                   <LoginIcon />
-                  Login
+                  {t("auth.login")}
                 </a>
               </div>
             </div>

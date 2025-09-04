@@ -1,0 +1,62 @@
+{
+  "lang": { "label": "Language", "en": "English", "az": "Azerbaijani" },
+  "auth": { "login": "Login" },
+  "nav": {
+    "platform": {
+      "title": "Platform",
+      "skolyn_os": "The Skolyn OS",
+      "clinical_modules": "Clinical Modules",
+      "core_technologies": "Core Technologies",
+      "workflow_integration": "Workflow Integration"
+    },
+    "solutions": {
+      "title": "Solutions",
+      "overview": "Overview",
+      "clinical_practice": "Clinical Practice",
+      "hospital_management": "Hospital Management",
+      "research_pharma": "Research & Pharma"
+    },
+    "technology": {
+      "title": "Technology",
+      "ai_research_philosophy": "AI Research Philosophy",
+      "infrastructure": "Infrastructure",
+      "ethical_ai": "Ethical AI"
+    },
+    "validation": {
+      "title": "Validation",
+      "methodology": "Our Methodology",
+      "clinical_studies": "Clinical Studies",
+      "publications": "Publications",
+      "regulatory_compliance": "Regulatory Compliance"
+    },
+    "insights": {
+      "title": "Insights",
+      "main_feed": "Main Feed",
+      "white_papers": "White Papers",
+      "case_studies": "Case Studies",
+      "webinars": "Webinars",
+      "news_press": "News and Press"
+    },
+    "partners": {
+      "title": "Partners",
+      "become_partner": "Become a Partner",
+      "clinical_research": "Clinical and Research",
+      "technology_integration": "Technology and Integration",
+      "investor_relations": "Investor Relations"
+    },
+    "company": {
+      "title": "Company",
+      "our_story": "Our Story",
+      "leadership": "Leadership",
+      "careers": "Careers",
+      "commitment_azerbaijan": "Our Commitment to Azerbaijan"
+    },
+    "contact": {
+      "title": "Contact",
+      "general_inquiry": "General Inquiry",
+      "request_demo": "Request a Demo",
+      "media_press": "Media and Press",
+      "support": "Support"
+    }
+  }
+}
