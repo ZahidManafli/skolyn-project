@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "alt": "AI alətlərindən istifadə edən həkim",
+    "title": "Radioloqlar üçün: Zamanı Geri Qazanın, İnamınızı Artırın"
+  },
+  "table": {
+    "headers": ["Problem", "Həll"],
+    "rows": [
+      ["Hesabat gecikmələri və tükənmişlik", "Hesabat iş axınının 50%-i avtomatlaşdırılır"],
+      ["Mürəkkəb hallarda diaqnostik qeyri-müəyyənlik", "Ani, məlumat-yönümlü ikinci rəydən yararlanın"]
+    ]
+  },
+  "day": {
+    "title": "Skolyn ilə Sizin Gündəlik İşiniz",
+    "text": "Skolyn-in pasiyent baxışından hesabat və izləməyə qədər gündəlik iş axınınızı necə fasiləsiz sadələşdirdiyini yaşayın"
+  },
+  "steps": [
+    { "title": "Səhər İcmalı", "text": "Gününüzə AI tərəfindən prioritetləşdirilmiş iş siyahıları ilə başlayın." },
+    { "title": "AI-Dəstəkli Diaqnostika", "text": "Skolyn kritik halları vurğulayır və ani insaytlar təqdim edir." },
+    { "title": "Hesabat Avtomatlaşdırması", "text": "Hesabat iş axınının 50%-i avtomatlaşdırılır." },
+    { "title": "Əməkdaşlıq və İzləmə", "text": "Tapıntıları paylaşın və pasiyent gedişatını səmərəli izləyin." }
+  ],
+  "quote": {
+    "title": "İstifadəçilərimiz Nə Deyir",
+    "text_html": "“Skolyn iş axınımı dəyişdirdi, ən kritik hallara ilk olaraq fokuslanmağıma imkan verdi.” <br/>—Dr. Ceyn Smit, Radioloq"
+
+  }
+}

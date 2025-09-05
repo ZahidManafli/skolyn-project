@@ -1,0 +1,20 @@
+{
+  "heading": "From Data Overload to Data-Driven Clarity.",
+  "cards": [
+    {
+      "title": "Efficiency",
+      "subtitle": "The Challenge of Volume",
+      "text": "With diagnostic imaging volume projected to increase annually, clinicians face an unsustainable workload. Skolyn's workflow automation reduces manual reporting time by up to 50%, allowing specialists to focus on critical, high-value analysis."
+    },
+    {
+      "title": "Trust",
+      "subtitle": "The \"Black Box\" Dilemma",
+      "text": "The adoption of AI in medicine is hindered by a lack of transparency. Our proprietary Explainable AI (XAI) is the antidote, providing a clear, auditable rationale for every finding to build unwavering clinical trust."
+    },
+    {
+      "title": "Accuracy",
+      "subtitle": "The Quest for Consistency",
+      "text": "Diagnostic interpretation can vary. Skolyn provides a rigorously validated, data-driven baseline for every study, reducing inter-observer variability and standardizing the highest quality of care across your institution."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "heading": "Müasir Diaqnostika üçün İnteqrasiya olunmuş ƏS",
+  "items": [
+    {
+      "title": "Süni İntellektlə Gücləndirilmiş Triage",
+      "text": "Ağıllı İş Siyahımız hər bir işi avtomatik analiz edib prioritetləşdirir, potensial kritik tapıntıları qeyd edir ki, siz ən çox ehtiyacı olan xəstələrə dərhal diqqət yetirə biləsiniz."
+    },
+    {
+      "title": "İzahlı Süni İntellekt (XAI)",
+      "text": "Süni intellektin nə gördüyünü tam olaraq görün. İnteraktiv istilik xəritələri və təbii dil əsaslandırmaları tam şəffaflıq təqdim edir, AI-ni etibarlı bir tərəfdaşa çevirir."
+    },
+    {
+      "title": "Uzunmüddətli Təhlil",
+      "text": "Tək bir görüntüdən kənara çıxın: hazırkı və əvvəlki müayinələri müqayisə edərək xəstəlik gedişatını və müalicəyə cavabı obyektiv məlumatlarla ölçün."
+    }
+  ]
+}

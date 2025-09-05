@@ -1,0 +1,17 @@
+{
+  "heading": "An Integrated OS for Modern Diagnostics",
+  "items": [
+    {
+      "title": "AI-Powered Triage",
+      "text": "Our Smart Worklist automatically analyzes and prioritizes every case in your queue, flagging potentially critical findings so you can focus on patients who need you most, right now."
+    },
+    {
+      "title": "Explainable AI (XAI)",
+      "text": "See exactly what the AI sees. Our interactive heatmaps and natural language justifications provide complete transparency, turning the AI into a trusted collaborator."
+    },
+    {
+      "title": "Longitudinal Analysis",
+      "text": "Go beyond a single snapshot: compare current and prior scans to quantify disease progression and treatment response with objective data."
+    }
+  ]
+}

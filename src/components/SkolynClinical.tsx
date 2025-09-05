@@ -1,4 +1,3 @@
-// src/components/SkolynClinical.tsx
 import React from "react";
 import WorkflowLogo from "./WorkflowLogo";
 import ModulesLogo from "./ModulesLogo";
@@ -7,14 +6,25 @@ import SkolynLogo from "./SkolynLogo";
 import BeyondIcon from "./BeyondIcon";
 import CoreIcon from "./CoreIcon";
 import BuildIcon from "./BuildIcon";
+import { useTranslation, Trans } from "react-i18next";
+
 const SkolynClinical: React.FC = () => {
+  const { t } = useTranslation("skolynclinical");
+
+  const cards = t("cards", { returnObjects: true }) as Array<{
+    title: string;
+    text: string;
+  }>;
+
   return (
     <section className="relative w-full bg-[#F4F7FB]">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <h2 className="pt-10 text-center text-2xl md:text-4xl font-extrabold leading-tight text-[#142961]">
-          The Skolyn Clinical Intelligence OS: Your Central
-          <br className="hidden sm:block" />
-          Command for Diagnostics
+          <Trans
+            i18nKey="heading"
+            ns="skolynclinical"
+            components={{ br: <br className="hidden sm:block" /> }}
+          />
         </h2>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 relative place-items-center">
@@ -47,15 +57,11 @@ const SkolynClinical: React.FC = () => {
           <div className="max-w-[720px] rounded-2xl md:rounded-[22px] px-5 py-4 md:px-6 md:py-5 shadow-lg bg-[#124DA6] text-[#212529]">
             <div className="flex items-start gap-3">
               <BeyondIcon className="h-6 w-6 flex-shrink-0" />
-
               <div>
                 <h3 className="text-base md:text-lg font-semibold">
-                  Beyond a Tool, An Ecosystem
+                  {cards[0]?.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed">
-                  A detailed explanation of how Skolyn integrates the entire
-                  diagnostic workflow.
-                </p>
+                <p className="mt-1 text-sm leading-relaxed">{cards[0]?.text}</p>
               </div>
             </div>
           </div>
@@ -64,14 +70,12 @@ const SkolynClinical: React.FC = () => {
             <div className="w-full md:max-w-[720px] rounded-2xl md:rounded-[22px] px-5 py-4 md:px-6 md:py-5 shadow-lg bg-[#236EDF] text-[#212529]">
               <div className="flex items-start gap-3">
                 <CoreIcon className="h-6 w-6 flex-shrink-0" />
-
                 <div>
                   <h3 className="text-base md:text-lg font-semibold">
-                    The Core Pillars
+                    {cards[1]?.title}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed">
-                    A visual breakdown of the three pillars: Diagnostic AI,
-                    Explainable Trust Layer, and Workflow Automation.
+                    {cards[1]?.text}
                   </p>
                 </div>
               </div>
@@ -81,15 +85,11 @@ const SkolynClinical: React.FC = () => {
           <div className="max-w-[720px] rounded-2xl md:rounded-[22px] px-5 py-4 md:px-6 md:py-5 shadow-lg bg-[#6498E5] text-[#212529]">
             <div className="flex items-start gap-3">
               <BuildIcon className="h-6 w-6 flex-shrink-0" />
-
               <div>
                 <h3 className="text-base md:text-lg font-semibold">
-                  Built for the Future
+                  {cards[2]?.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed">
-                  Discusses the platform’s modularity and readiness for future
-                  technologies like multi-modal fusion and radiogenomics.
-                </p>
+                <p className="mt-1 text-sm leading-relaxed">{cards[2]?.text}</p>
               </div>
             </div>
           </div>
