@@ -1,5 +1,16 @@
 {
   "files": [],
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": false,              
+    "skipLibCheck": true,        
+    "noImplicitAny": false,       
+    "strictNullChecks": false, 
+    "forceConsistentCasingInFileNames": false
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
