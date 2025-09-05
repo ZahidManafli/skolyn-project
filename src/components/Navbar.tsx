@@ -1,103 +1,118 @@
 import React, { useEffect, useRef, useState } from "react";
 import LoginIcon from "./LoginIcon";
 import NavbarIcon from "./NavbarIcon";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
-type ChildItem = { label: string; href: string };
-type NavItem = { label: string; href?: string; children?: ChildItem[] };
+type ChildItem = { key: string; href: string };
+type NavItem = { key: string; href?: string; children?: ChildItem[] };
 
 const NAV: NavItem[] = [
   {
-    label: "Platform",
+    key: "nav.platform.title",
     children: [
-      { label: "The Skolyn OS", href: "#" },
-      { label: "Clinical Modules", href: "#" },
-      { label: "Core Technologies", href: "#" },
-      { label: "Workflow Integration", href: "#" },
+      { key: "nav.platform.skolyn_os", href: "#" },
+      { key: "nav.platform.clinical_modules", href: "#" },
+      { key: "nav.platform.core_technologies", href: "#" },
+      { key: "nav.platform.workflow_integration", href: "#" },
     ],
   },
   {
-    label: "Solutions",
+    key: "nav.solutions.title",
     children: [
-      { label: "Overview", href: "#" },
-      { label: "Clinical Practice", href: "#" },
-      { label: "Hospital Management", href: "#" },
-      { label: "Research & Pharma", href: "#" },
+      { key: "nav.solutions.overview", href: "#" },
+      { key: "nav.solutions.clinical_practice", href: "#" },
+      { key: "nav.solutions.hospital_management", href: "#" },
+      { key: "nav.solutions.research_pharma", href: "#" },
     ],
   },
   {
-    label: "Technology",
+    key: "nav.technology.title",
     children: [
-      { label: "AI Research Philosophy", href: "#" },
-      { label: "Infrastructure", href: "#" },
-      { label: "Ethical Al", href: "#" },
+      { key: "nav.technology.ai_research_philosophy", href: "#" },
+      { key: "nav.technology.infrastructure", href: "#" },
+      { key: "nav.technology.ethical_ai", href: "#" },
     ],
   },
   {
-    label: "Validation",
+    key: "nav.validation.title",
     children: [
-      { label: "Our Methodology", href: "#" },
-      { label: "Clinical Studies", href: "#" },
-      { label: "Publications", href: "#" },
-      { label: "Regulatory Compliance", href: "#" },
+      { key: "nav.validation.methodology", href: "#" },
+      { key: "nav.validation.clinical_studies", href: "#" },
+      { key: "nav.validation.publications", href: "#" },
+      { key: "nav.validation.regulatory_compliance", href: "#" },
     ],
   },
   {
-    label: "Insights",
+    key: "nav.insights.title",
     children: [
-      { label: "Main Feed", href: "#" },
-      { label: "White Papers", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Webinars", href: "#" },
-      { label: "News and Press", href: "#" },
+      { key: "nav.insights.main_feed", href: "#" },
+      { key: "nav.insights.white_papers", href: "#" },
+      { key: "nav.insights.case_studies", href: "#" },
+      { key: "nav.insights.webinars", href: "#" },
+      { key: "nav.insights.news_press", href: "#" },
     ],
   },
   {
-    label: "Partners",
+    key: "nav.partners.title",
     children: [
-      { label: "Become a Partner", href: "#" },
-      { label: "Clinical and Research", href: "#" },
-      { label: "Technology and Integration", href: "#" },
-      { label: "Investor Relations", href: "#" },
+      { key: "nav.partners.become_partner", href: "#" },
+      { key: "nav.partners.clinical_research", href: "#" },
+      { key: "nav.partners.technology_integration", href: "#" },
+      { key: "nav.partners.investor_relations", href: "#" },
     ],
   },
   {
-    label: "Company",
+    key: "nav.company.title",
     children: [
-      { label: "Our Story", href: "#" },
-      { label: "Leadership", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Our Commitment to Azerbaijan", href: "#" },
+      { key: "nav.company.our_story", href: "#" },
+      { key: "nav.company.leadership", href: "#" },
+      { key: "nav.company.careers", href: "#" },
+      { key: "nav.company.commitment_azerbaijan", href: "#" },
     ],
   },
   {
-    label: "Contact",
+    key: "nav.contact.title",
     children: [
-      { label: "General Inquiry", href: "#" },
-      { label: "Resquest a Demo", href: "#" },
-      { label: "Media and Press", href: "#" },
-      { label: "Support", href: "#" },
+      { key: "nav.contact.general_inquiry", href: "#" },
+      { key: "nav.contact.request_demo", href: "#" },
+      { key: "nav.contact.media_press", href: "#" },
+      { key: "nav.contact.support", href: "#" },
     ],
   },
 ];
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [solid, setSolid] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileOpenIndex, setMobileOpenIndex] = useState<number | null>(null);
+
+  const [langOpen, setLangOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
+  const currentLangShort = (i18n.language || "en").slice(0, 2).toUpperCase() as
+    | "EN"
+    | "AZ";
+
   const rootRef = useRef<HTMLDivElement>(null);
 
-  // Dışarı tıklayınca masaüstü menü kapansın + es kapatsın
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
       if (!rootRef.current) return;
-      if (!rootRef.current.contains(e.target as Node)) setOpenIndex(null);
+      if (!rootRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
+        setLangOpen(false);
+        setMobileLangOpen(false);
+      }
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpenIndex(null);
         setMobileOpen(false);
         setMobileOpenIndex(null);
+        setLangOpen(false);
+        setMobileLangOpen(false);
       }
     };
     document.addEventListener("mousedown", onDocClick);
@@ -126,6 +141,12 @@ const Navbar: React.FC = () => {
     };
   }, [mobileOpen]);
 
+  const handleSelectLang = (newLang: "EN" | "AZ") => {
+    void i18n.changeLanguage(newLang.toLowerCase() as "en" | "az");
+    setLangOpen(false);
+    setMobileLangOpen(false);
+  };
+
   return (
     <header
       className={[
@@ -145,19 +166,19 @@ const Navbar: React.FC = () => {
 
                 if (!hasChildren) {
                   return (
-                    <li key={item.label}>
+                    <li key={item.key}>
                       <a
                         href={item.href ?? "#"}
                         className="inline-block py-2 text-base text-white transition hover:text-[#00A99D] cursor-pointer "
                       >
-                        {item.label}
+                        {t(item.key)}
                       </a>
                     </li>
                   );
                 }
 
                 return (
-                  <li key={item.label} className="relative">
+                  <li key={item.key} className="relative">
                     <button
                       type="button"
                       aria-haspopup="menu"
@@ -165,7 +186,7 @@ const Navbar: React.FC = () => {
                       onClick={() => setOpenIndex(isOpen ? null : idx)}
                       className="inline-flex items-center gap-2 py-2 text-base text-white transition hover:text-[#00A99D] cursor-pointer"
                     >
-                      {item.label}
+                      {t(item.key)}
                       <NavbarIcon />
                     </button>
 
@@ -176,13 +197,13 @@ const Navbar: React.FC = () => {
                       >
                         <ul className="py-2">
                           {item.children!.map((c) => (
-                            <li key={c.label}>
+                            <li key={c.key}>
                               <a
                                 href={c.href}
                                 className="block p-4 ml-2 text-base text-white transition hover:text-[#FFFFFF] "
                                 onClick={() => setOpenIndex(null)}
                               >
-                                {c.label}
+                                {t(c.key)}
                               </a>
                             </li>
                           ))}
@@ -196,18 +217,49 @@ const Navbar: React.FC = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <button
-              className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] cursor-pointer hover:text-[#00A99D]"
-              aria-label="Language"
-            >
-              EN
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] cursor-pointer hover:text-[#00A99D]"
+                aria-label={t("lang.label")}
+                aria-expanded={langOpen}
+              >
+                {currentLangShort}
+              </button>
+
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 w-20 rounded-md bg-[#0b1f45] border border-white/20 shadow-lg">
+                  <ul className="py-1 text-xs text-white">
+                    <li>
+                      <button
+                        onClick={() => handleSelectLang("EN")}
+                        className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                        aria-label={t("lang.en")}
+                      >
+                        EN
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => handleSelectLang("AZ")}
+                        className="block w-full text-left px-3 py-1 hover:bg白/10 hover:bg-white/10"
+                        aria-label={t("lang.az")}
+                      >
+                        AZ
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
             <a
               href="/login"
               className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
+              aria-label={t("auth.login")}
             >
               <LoginIcon />
-              Login
+              {t("auth.login")}
             </a>
           </div>
 
@@ -219,7 +271,6 @@ const Navbar: React.FC = () => {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
-            {/* Hamburger Menü İkonu */}
             <svg
               className={`h-5 w-5 transition-transform ${
                 mobileOpen ? "rotate-90 opacity-0 absolute" : "opacity-100"
@@ -247,109 +298,141 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobil panel */}
-        <div
-          id="mobile-menu"
-          className={[
-            "md:hidden overflow-hidden transition-[max-height,opacity] duration-300",
-            mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
-          ].join(" ")}
-        >
-          <div className="mt-2 rounded-lg border border-white/10 bg-[#0b1f45]/95 p-2 backdrop-blur">
-            <ul className="divide-y divide-white/10">
-              {NAV.map((item, idx) => {
-                const hasChildren = !!item.children?.length;
-                const isOpen = mobileOpenIndex === idx;
+        {mobileOpen && (
+          <div
+            id="mobile-menu"
+            className="fixed inset-x-0 z-40 top-14
+               h-[calc(100dvh-3.5rem)]
+               bg-[#0b1f45]/95 backdrop-blur
+               border-t border-white/10
+               overflow-y-auto"
+          >
+            <div className="p-2">
+              <ul className="divide-y divide-white/10">
+                {NAV.map((item, idx) => {
+                  const hasChildren = !!item.children?.length;
+                  const isOpen = mobileOpenIndex === idx;
 
-                if (!hasChildren) {
+                  if (!hasChildren) {
+                    return (
+                      <li key={item.key} className="py-1">
+                        <a
+                          href={item.href ?? "#"}
+                          className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {t(item.key)}
+                        </a>
+                      </li>
+                    );
+                  }
+
                   return (
-                    <li key={item.label} className="py-1">
-                      <a
-                        href={item.href ?? "#"}
-                        className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
-                        onClick={() => setMobileOpen(false)}
+                    <li key={item.key} className="py-1">
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-white/90 hover:bg-white/10"
+                        aria-expanded={isOpen}
+                        onClick={() => setMobileOpenIndex(isOpen ? null : idx)}
                       >
-                        {item.label}
-                      </a>
-                    </li>
-                  );
-                }
+                        <span>{t(item.key)}</span>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          className={`transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        >
+                          <path
+                            d="M6 9l6 6 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            fill="none"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </button>
 
-                return (
-                  <li key={item.label} className="py-1">
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm text-white/90 hover:bg-white/10"
-                      aria-expanded={isOpen}
-                      onClick={() => setMobileOpenIndex(isOpen ? null : idx)}
-                    >
-                      <span>{item.label}</span>
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        className={`transition-transform ${
-                          isOpen ? "rotate-180" : ""
+                      <div
+                        className={`overflow-hidden transition-[max-height,opacity] duration-300 ${
+                          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                         }`}
                       >
-                        <path
-                          d="M6 9l6 6 6-6"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          fill="none"
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                    </button>
+                        <ul className="py-1 pl-3">
+                          {item.children!.map((c) => (
+                            <li key={c.key}>
+                              <a
+                                href={c.href}
+                                className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setMobileOpenIndex(null);
+                                }}
+                              >
+                                {t(c.key)}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
 
-                    {/* Alt menü */}
-                    <div
-                      className={[
-                        "overflow-hidden transition-[max-height,opacity] duration-300",
-                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-                      ].join(" ")}
-                    >
-                      <ul className="py-1 pl-3">
-                        {item.children!.map((c) => (
-                          <li key={c.label}>
-                            <a
-                              href={c.href}
-                              className="block rounded-md px-3 py-2 text-sm text-white/90 hover:bg-white/10"
-                              onClick={() => {
-                                setMobileOpen(false);
-                                setMobileOpenIndex(null);
-                              }}
-                            >
-                              {c.label}
-                            </a>
-                          </li>
-                        ))}
+              <div className="mt-3 flex items-center gap-3 px-2 pb-4">
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      setMobileLangOpen((v) => !v);
+                      setLangOpen(false);
+                    }}
+                    className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] hover:text-[#00A99D]"
+                    aria-label={t("lang.label")}
+                    aria-expanded={mobileLangOpen}
+                  >
+                    {currentLangShort}
+                  </button>
+                  {mobileLangOpen && (
+                    <div className="absolute left-0 top-full mt-1 w-24 rounded-md bg-[#0b1f45] border border-white/20 shadow-lg">
+                      <ul className="py-1 text-xs text-white">
+                        <li>
+                          <button
+                            onClick={() => handleSelectLang("EN")}
+                            className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                            aria-label={t("lang.en")}
+                          >
+                            EN
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={() => handleSelectLang("AZ")}
+                            className="block w-full text-left px-3 py-1 hover:bg-white/10"
+                            aria-label={t("lang.az")}
+                          >
+                            AZ
+                          </button>
+                        </li>
                       </ul>
                     </div>
-                  </li>
-                );
-              })}
-            </ul>
+                  )}
+                </div>
 
-            <div className="mt-3 flex items-center gap-3 px-2 pb-2">
-              <button
-                className="inline-flex h-9 items-center rounded-md border border-white px-2 text-xs text-white transition hover:border-[#00A99D] hover:text-[#00A99D]"
-                aria-label="Language"
-                onClick={() => setMobileOpen(false)}
-              >
-                EN
-              </button>
-              <a
-                href="/login"
-                className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
-                onClick={() => setMobileOpen(false)}
-              >
-                <LoginIcon />
-                Login
-              </a>
+                <a
+                  href="/login"
+                  className="inline-flex h-9 items-center gap-2 bg-teal-500 px-3 text-sm font-medium text-white transition hover:bg-[#0C9187] active:scale-[0.99]"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label={t("auth.login")}
+                >
+                  <LoginIcon />
+                  {t("auth.login")}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

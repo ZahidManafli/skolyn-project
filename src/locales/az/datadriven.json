@@ -1,0 +1,20 @@
+{
+  "heading": "Məlumat Yüklənməsindən Məlumat-Yönümlü Aydınlığa.",
+  "cards": [
+    {
+      "title": "Səmərəlilik",
+      "subtitle": "Həcmin Çağırışı",
+      "text": "Diaqnostik görüntüləmə həcminin hər il artması ilə klinisistlər davam etdirilməsi çətin bir iş yükü ilə üzləşirlər. Skolyn-in iş axını avtomatlaşdırması əl hesabat vaxtını 50%-ə qədər azaldır və mütəxəssislərin kritik, yüksək dəyərli təhlilə fokuslanmasına imkan verir."
+    },
+    {
+      "title": "Etibar",
+      "subtitle": "\"Qara Qutu\" İkilemi",
+      "text": "Tibbdə AI-in tətbiqi şəffaflığın olmaması ilə əngəllənir. Bizim xüsusi İzahlı AI (XAI) hər bir tapıntı üçün aydın, audit edilə bilən əsaslandırma təqdim edərək sarsılmaz klinik etimad qurur."
+    },
+    {
+      "title": "Dəqiqlik",
+      "subtitle": "Sabitlik Axtarışı",
+      "text": "Diaqnostik şərh dəyişə bilər. Skolyn hər bir tədqiqat üçün ciddi şəkildə təsdiqlənmiş, məlumat-yönümlü baza təmin edir, müşahidəçilərarası dəyişkənliyi azaldır və müəssisəniz boyu ən yüksək xidmət keyfiyyətini standartlaşdırır."
+    }
+  ]
+}

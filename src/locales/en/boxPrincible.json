@@ -1,0 +1,49 @@
+{
+  "heading": "The Glass Box Principle:<br/>Our Unwavering Commitment to Trust",
+  "necessity": {
+    "title": "The Necessity of Explainable AI in Medicine",
+    "text": "Explainable AI (XAI) ensures clinicians understand, trust, and verify AI-driven decisions, improving patient safety and care quality."
+  },
+  "visual": {
+    "title": "Visual Justification: Seeing Through the AI's Eyes",
+    "caption_standard": "Standard MRI View <br/>(Unprocessed)",
+    "caption_ai": "AI-Enhanced MRI with Segmentation <br/>& Heatmap Overlay",
+    "alt_standard": "Standard MRI View",
+    "alt_ai": "AI-Enhanced MRI with Segmentation & Heatmap Overlay"
+  },
+  "textual": {
+    "title": "Textual Justification: The AI's Rationale in Your Language",
+    "example_en_label": "English",
+    "example_en_text": "The lesion in the left hemisphere shows high probability of demyelination based on voxel intensity analysis.",
+    "example_az_label": "Azerbaijani",
+    "example_az_text": "Sol hemisferdəki lezyon voxellərin intensivliyinə əsasən demielinasiyaya ehtimalının yüksək olduğunu göstərir.",
+    "footnote": "*These textual examples allow clinicians to understand the AI's reasoning in their own language."
+  },
+  "uncertainty": {
+    "title": "Uncertainty Quantification: The AI Knows What It Doesn't Know",
+    "desc": "By quantifying uncertainty, the AI signals cases that require further human review. Confidence scores allow clinicians to prioritize high-risk or ambiguous cases, improving patient safety and optimizing workflow efficiency.",
+    "table": {
+      "headers": ["Confidence Score", "Review Priority", "Action Required"],
+      "rows": [
+        ["95%", "Low", "Routine follow-up"],
+        ["75%", "Medium", "Standard review"],
+        ["55%", "High", "Immediate clinician review"],
+        ["30%", "Critical", "Urgent intervention"]
+      ]
+    }
+  },
+  "audiences": {
+    "clinical": {
+      "title": "For Clinical Practice:",
+      "items": ["Radiologists", "Oncologists", "Surgeons"]
+    },
+    "management": {
+      "title": "For Hospital Management:",
+      "items": ["Administrators", "IT Departments"]
+    },
+    "research": {
+      "title": "For Research &amp; Pharma:",
+      "items": ["Academic Researchers", "CROs"]
+    }
+  }
+}

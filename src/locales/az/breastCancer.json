@@ -1,0 +1,37 @@
+{
+  "heading": "Süd Vəzi Xərçəngi Diaqnostikası üçün Dəqiq AI",
+  "clinical": {
+    "title": "Klinik Çağırış",
+    "text": "Sıx süd vəzi toxumasında lezyonların aşkarlanması çox vaxt üst-üstə düşən anatomik strukturlar, incə toxuma fərqlilikləri və xəstədən-xəstəyə dəyişkənlik səbəbindən çətinləşir; bu isə gecikmiş və ya qaçırılmış diaqnozlara gətirə bilər."
+  },
+  "solution": {
+    "title": "Skolyn Həlli: Əsas AI İmkanları"
+  },
+  "features": [
+    "Avtomatlaşdırılmış Lezyon Aşkarlanması və 3D Seqmentasiya",
+    "AI ilə Gücləndirilmiş BI-RADS® Təsnifatı",
+    "Kəmiyyət Morfoloji və Kinetik Təhlil"
+  ],
+  "insight": {
+    "title": "Yeni Səviyyədə İnsayt",
+    "caption_standard": "Standart MRT Görüntüsü <br/>(Emal Olunmamış)",
+    "caption_ai": "Seqmentasiya və İstilik Xəritəsi Örtüyü ilə <br/>AI-İlə Zənginləşdirilmiş MRT"
+  },
+  "impact": {
+    "title": "Klinik Təsir",
+    "items": [
+      "Aşkarlama göstəricilərinin yaxşılaşması",
+      "Yalan-müsbət geri çağırmaların azalması",
+      "Hesabatların standartlaşdırılması"
+    ]
+  },
+  "cta": {
+    "title": "Tibb Gələcəyinə Liderlik Etməyə Hazırsınız?",
+    "text": "Skolyn-in müəssisənizin diaqnostik imkanlarını necə yüksəltdiyini və pasiyent qayğısının gələcəyini necə çatdırdığını kəşf edin.",
+    "button": "Fərdiləşdirilmiş Konsultasiya Planlaşdırın"
+  },
+  "alt": {
+    "hero": "Süd Vəzi Xərçəngi Diaqnostikası",
+    "insight": "AI-İlə Zənginləşdirilmiş MRT"
+  }
+}

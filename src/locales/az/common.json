@@ -1,0 +1,62 @@
+{
+  "lang": { "label": "Dil", "en": "İngilis", "az": "Azərbaycan" },
+  "auth": { "login": "Giriş" },
+  "nav": {
+    "platform": {
+      "title": "Platforma",
+      "skolyn_os": "Skolyn Əməliyyat Sistemi",
+      "clinical_modules": "Klinik Modullar",
+      "core_technologies": "Əsas Texnologiyalar",
+      "workflow_integration": "İş Axını İnteqrasiyası"
+    },
+    "solutions": {
+      "title": "Həllər",
+      "overview": "İcmal",
+      "clinical_practice": "Klinik Praktika",
+      "hospital_management": "Xəstəxana İdarəçiliyi",
+      "research_pharma": "Tədqiqat və Farmasevtika"
+    },
+    "technology": {
+      "title": "Texnologiya",
+      "ai_research_philosophy": "Süni İntellekt Tədqiqat Fəlsəfəsi",
+      "infrastructure": "İnfrastruktur",
+      "ethical_ai": "Etik Süni İntellekt"
+    },
+    "validation": {
+      "title": "Təsdiqləmə",
+      "methodology": "Metodologiyamız",
+      "clinical_studies": "Klinik Tədqiqatlar",
+      "publications": "Nəşrlər",
+      "regulatory_compliance": "Tənzimləyici Uyğunluq"
+    },
+    "insights": {
+      "title": "İnsaytlar",
+      "main_feed": "Əsas Lent",
+      "white_papers": "Ağ Sənədlər",
+      "case_studies": "Hadisə Tədqiqatları",
+      "webinars": "Vebinarlar",
+      "news_press": "Xəbərlər və Mətbuat"
+    },
+    "partners": {
+      "title": "Tərəfdaşlar",
+      "become_partner": "Tərəfdaş Olun",
+      "clinical_research": "Klinik və Tədqiqat",
+      "technology_integration": "Texnologiya və İnteqrasiya",
+      "investor_relations": "İnvestorlarla Əlaqələr"
+    },
+    "company": {
+      "title": "Şirkət",
+      "our_story": "Hekayəmiz",
+      "leadership": "Rəhbərlik",
+      "careers": "Karyera",
+      "commitment_azerbaijan": "Azərbaycan Üçün Öhdəliyimiz"
+    },
+    "contact": {
+      "title": "Əlaqə",
+      "general_inquiry": "Ümumi Sorğu",
+      "request_demo": "Demo Tələb Et",
+      "media_press": "Media və Mətbuat",
+      "support": "Dəstək"
+    }
+  }
+}

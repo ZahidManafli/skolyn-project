@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "alt": "Doctor using AI tools",
+    "title": "For Radiologists: Reclaim Your Time, Enhance Your Confidence"
+  },
+  "table": {
+    "headers": ["Problem", "Solution"],
+    "rows": [
+      ["Reporting backlog and burnout", "Automate 50% of your reporting workflow"],
+      ["Diagnostic uncertainty in complex cases", "Leverage an instant, data-driven second opinion"]
+    ]
+  },
+  "day": {
+    "title": "A Day in Your Life with Skolyn",
+    "text": "Experience how Skolyn seamlessly streamlines your daily workflow, from patient review to reporting and follow-up"
+  },
+  "steps": [
+    { "title": "Morning Review", "text": "Start your day with AI-prioritized worklists." },
+    { "title": "AI-Assisted Diagnosis", "text": "Skolyn highlights critical cases and provides instant insights." },
+    { "title": "Report Automation", "text": "50% of your reporting workflow is automated." },
+    { "title": "Collaboration & Follow-Up", "text": "Share findings and track patient progress efficiently." }
+  ],
+  "quote": {
+    "title": "What Our Users Say",
+    "text_html": "“Skolyn has transformed my workflow, allowing me to focus on the most critical cases first.” <br/>—Dr. Jane Smith, Radiologist"
+  }
+}

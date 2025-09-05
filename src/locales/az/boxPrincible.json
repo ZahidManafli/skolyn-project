@@ -1,0 +1,49 @@
+{
+  "heading": "Şüşə Qutu Prinsipi:<br/>Sarsılmaz Etibar Öhdəliyimiz",
+  "necessity": {
+    "title": "Tibbdə İzahlı AI-in Zəruriliyi",
+    "text": "İzahlı AI (XAI) həkimlərin AI əsaslı qərarları başa düşməsini, etibar etməsini və yoxlamasını təmin edir; bu da pasiyent təhlükəsizliyini və qayğı keyfiyyətini artırır."
+  },
+  "visual": {
+    "title": "Vizual Əsaslandırma: AI-in Gözündən Görmək",
+    "caption_standard": "Standart MRT Görüntüsü <br/>(Emal Olunmamış)",
+    "caption_ai": "Seqmentasiya və İstilik Xəritəsi Örtüyü ilə <br/>AI-İlə Zənginləşdirilmiş MRT",
+    "alt_standard": "Standart MRT Görüntüsü",
+    "alt_ai": "Seqmentasiya və İstilik Xəritəsi ilə AI-İlə Zənginləşdirilmiş MRT"
+  },
+  "textual": {
+    "title": "Mətnlə Əsaslandırma: AI-in Məhz Dilinizdə İzahı",
+    "example_en_label": "İngilis",
+    "example_en_text": "Sol hemisferdəki lezyon voxellərin intensivliyinə əsasən demielinasiyaya ehtimalının yüksək olduğunu göstərir.",
+    "example_az_label": "Azərbaycan",
+    "example_az_text": "Sol hemisferdəki lezyon voxellərin intensivliyinə əsasən demielinasiyaya ehtimalının yüksək olduğunu göstərir.",
+    "footnote": "*Bu mətn nümunələri həkimlərin AI-in məntiqini öz dillərində anlamasına imkan verir."
+  },
+  "uncertainty": {
+    "title": "Qeyri-müəyyənliyin Kəmiyyətləndirilməsi: AI Bilmədiyini Də Bilir",
+    "desc": "Qeyri-müəyyənliyi ölçməklə, AI əlavə insan yoxlaması tələb edən halları siqnallaşdırır. İnamsızlıq skorları həkimlərə riskli və ya qeyri-müəyyən işləri prioritetləşdirməyə imkan verir, pasiyent təhlükəsizliyini və iş axını səmərəliliyini yaxşılaşdırır.",
+    "table": {
+      "headers": ["Etibar Skoru", "Yoxlama Prioriteti", "Tələb Olunan Fəaliyyət"],
+      "rows": [
+        ["95%", "Aşağı", "Rutın izləmə"],
+        ["75%", "Orta", "Standart baxış"],
+        ["55%", "Yüksək", "Dərhal həkim baxışı"],
+        ["30%", "Kritik", "Təcili müdaxilə"]
+      ]
+    }
+  },
+  "audiences": {
+    "clinical": {
+      "title": "Klinik Praktika üçün:",
+      "items": ["Radioloqlar", "Onkoloqlar", "Cərrahlar"]
+    },
+    "management": {
+      "title": "Xəstəxana İdarəçiliyi üçün:",
+      "items": ["Administratorlar", "İT Şöbələri"]
+    },
+    "research": {
+      "title": "Tədqiqat və Farmasevtika üçün:",
+      "items": ["Akademik Tədqiqatçılar", "CRO-lar"]
+    }
+  }
+}

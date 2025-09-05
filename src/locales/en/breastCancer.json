@@ -1,0 +1,37 @@
+{
+  "heading": "Precision AI for Breast Cancer Diagnostics",
+  "clinical": {
+    "title": "The Clinical Challenge",
+    "text": "Detecting lesions in dense breast tissue is often complicated by overlapping anatomical structures, subtle tissue variations, and high inter-patient variability, which can lead to delayed or missed diagnoses."
+  },
+  "solution": {
+    "title": "The Skolyn Solution: Key AI Capabilities"
+  },
+  "features": [
+    "Automated Lesion Detection & 3D Segmentation",
+    "AI-Powered BI-RADS® Classification",
+    "Quantitative Morphological & Kinetic Analysis"
+  ],
+  "insight": {
+    "title": "A New Level of Insight",
+    "caption_standard": "Standard MRI View <br/>(Unprocessed)",
+    "caption_ai": "AI-Enhanced MRI with Segmentation <br/> Heatmap Overlay"
+  },
+  "impact": {
+    "title": "Clinical Impact",
+    "items": [
+      "Improved detection rates",
+      "Reduced false-positive recalls",
+      "Standardized reporting"
+    ]
+  },
+  "cta": {
+    "title": "Ready to Lead the Future of Medicine?",
+    "text": "Discover how Skolyn can elevate your institution's diagnostic capabilities and deliver the future of patient care.",
+    "button": "Schedule a Personalized Consultation"
+  },
+  "alt": {
+    "hero": "Breast Cancer Diagnostics",
+    "insight": "AI-Enhanced MRI"
+  }
+}
